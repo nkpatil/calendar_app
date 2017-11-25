@@ -29,58 +29,55 @@
             var eventObject = {
                 title: $.trim($(this).text()) // use the element's text as the event title
             };
-		});
+	});
 	
-	
-		/* initialize the calendar
-		-----------------------------------------------------------------*/
-		var calendar =  $('#calendar').fullCalendar({
-			header: {
-				left: 'title',
-				center: 'agendaDay,agendaWeek,month',
-				right: 'prev,next today'
-			},
-			editable: true,
-			firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
-			selectable: true,
-			defaultView: 'month',
-			axisFormat: 'h:mm',
-			columnFormat: {
-                month: 'ddd',    // Mon
-                week: 'ddd d', // Mon 7
-                day: 'dddd M/d',  // Monday 9/7
-                agendaDay: 'dddd d'
-            },
-            titleFormat: {
-                month: 'MMMM yyyy', // September 2009
-                week: "MMMM yyyy", // September 2009
-                day: 'MMMM yyyy'                  // Tuesday, Sep 8, 2009
-            },
-			allDaySlot: false,
-			selectHelper: true,
-			events: events_data,
+	var calendar =  $('#calendar').fullCalendar({
+		header: {
+			left: 'title',
+			center: 'agendaDay,agendaWeek,month',
+			right: 'prev,next today'
+		},
+		editable: true,
+		firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
+		selectable: true,
+		defaultView: 'month',
+		axisFormat: 'h:mm',
+		columnFormat: {
+	               	month: 'ddd',    // Mon
+         	       	week: 'ddd d', // Mon 7
+                	day: 'dddd M/d',  // Monday 9/7
+               		agendaDay: 'dddd d'
+            	},
+            	titleFormat: {
+                	month: 'MMMM yyyy', // September 2009
+                	week: "MMMM yyyy", // September 2009
+                	day: 'MMMM yyyy'                  // Tuesday, Sep 8, 2009
+            	},
+		allDaySlot: false,
+		selectHelper: true,
+		events: events_data,
 		});
 	});
 </script>
+
 <style>
-		
 	#wrap {
 		width: 1100px;
 		margin: 0 auto;
-		}
+	}
 		
 	#external-events {
 		float: left;
 		width: 150px;
 		padding: 0 10px;
 		text-align: left;
-		}
+	}
 		
 	#external-events h4 {
 		font-size: 16px;
 		margin-top: 0;
 		padding-top: 1em;
-		}
+	}
 		
 	.external-event { /* try to mimick the look of a real event */
 		margin: 10px 0;
@@ -89,21 +86,20 @@
 		color: #fff;
 		font-size: .85em;
 		cursor: pointer;
-		}
+	}
 		
 	#external-events p {
 		margin: 1.5em 0;
 		font-size: 11px;
 		color: #666;
-		}
+	}
 		
 	#external-events p input {
 		margin: 0;
 		vertical-align: middle;
-		}
+	}
 
 	#calendar {
-/* 		float: right; */
 		margin: 0 auto;
 		width: 900px;
 		background-color: #FFFFFF;
@@ -112,66 +108,65 @@
 		-webkit-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
 		-moz-box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
 		box-shadow: 0px 0px 21px 2px rgba(0,0,0,0.18);
-		}
+	}
 
-/*---old---*/
-form_main {
-    width: 100%;
-}
-.form_main h4 {
-    font-family: roboto;
-    font-size: 20px;
-    font-weight: 300;
-    margin-bottom: 15px;
-    margin-top: 20px;
-    text-transform: uppercase;
-}
-.heading {
-    border-bottom: 1px solid #fcab0e;
-    padding-bottom: 9px;
-    position: relative;
-}
-.heading span {
-    background: #9e6600 none repeat scroll 0 0;
-    bottom: -2px;
-    height: 3px;
-    left: 0;
-    position: absolute;
-    width: 75px;
-}   
-.form {
-    border-radius: 7px;
-    padding: 6px;
-}
-.txt[type="text"] {
-    border: 1px solid #ccc;
-    margin: 10px 0;
-    padding: 10px 0 10px 5px;
-    width: 100%;
-}
-.txt_3[type="text"] {
-    margin: 10px 0 0;
-    padding: 10px 0 10px 5px;
-    width: 100%;
-}
-.txt2[type="submit"] {
-    background: #242424 none repeat scroll 0 0;
-    border: 1px solid #4f5c04;
-    border-radius: 25px;
-    color: #fff;
-    font-size: 16px;
-    font-style: normal;
-    line-height: 35px;
-    margin: 10px 0;
-    padding: 0;
-    text-transform: uppercase;
-    width: 30%;
-}
-.txt2:hover {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    color: #5793ef;
-    transition: all 0.5s ease 0s;
-}
+	form_main {
+    		width: 100%;
+	}
+	.form_main h4 {
+    		font-family: roboto;
+    		font-size: 20px;
+    		font-weight: 300;
+    		margin-bottom: 15px;
+    		margin-top: 20px;
+    		text-transform: uppercase;
+	}
+	.heading {
+    		border-bottom: 1px solid #fcab0e;
+    		padding-bottom: 9px;
+    		position: relative;
+	}
+	.heading span {
+    		background: #9e6600 none repeat scroll 0 0;
+    		bottom: -2px;
+    		height: 3px;
+    		left: 0;
+    		position: absolute;
+    		width: 75px;
+	}   
+	.form {
+    		border-radius: 7px;
+    		padding: 6px;
+	}
+	.txt[type="text"] {
+    		border: 1px solid #ccc;
+    		margin: 10px 0;
+    		padding: 10px 0 10px 5px;
+    		width: 100%;
+	}
+	.txt_3[type="text"] {
+    		margin: 10px 0 0;
+    		padding: 10px 0 10px 5px;
+    		width: 100%;
+	}
+	.txt2[type="submit"] {
+    		background: #242424 none repeat scroll 0 0;
+    		border: 1px solid #4f5c04;
+    		border-radius: 25px;
+    		color: #fff;
+    		font-size: 16px;
+    		font-style: normal;
+    		line-height: 35px;
+    		margin: 10px 0;
+    		padding: 0;
+    		text-transform: uppercase;
+    		width: 30%;
+	}
+	.txt2:hover {
+    		background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    		color: #5793ef;
+    		transition: all 0.5s ease 0s;
+	}
 </style>
 
 <div class="container" align="center">
@@ -200,9 +195,9 @@ form_main {
 </div>
 
 <div id='wrap'>
-        <div align="center"><h2>Saved Events</h2></div>
-	<div id='calendar'></div>
-	<div style='clear:both'></div>
+  <div align="center"><h2>Saved Events</h2></div>
+  <div id='calendar'></div>
+  <div style='clear:both'></div>
 </div>
 
 <script>
@@ -218,8 +213,5 @@ $(function(){
     input.clockpicker({
         autoclose: true
     });
-
-
 });
-
 </script>

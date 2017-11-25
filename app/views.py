@@ -51,9 +51,9 @@ def save_record(request):
             record.comments = comments
             record.save()
             template_name = request.user.last_name
-            return render(request, template_name, {'user': request.user, 'message':'Record saved successfully!'})
+            return render(request, "calendar.html", {'user': request.user, 'message':'Record saved successfully!'})
         except Exception as err:
-            return render(request, "calendar.html", {'message':str(err)})
+            return render(request, "calendar.html", {'message': 'Error saving record : '+ str(err)})
     else:
           query = Record.objects.filter(user=request.user).values()
           data = []
