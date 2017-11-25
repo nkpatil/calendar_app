@@ -51,7 +51,15 @@ def save_record(request):
             record.comments = comments
             record.save()
             template_name = request.user.last_name
-            return render(request, "calendar.html", {'user': request.user, 'message':'Record saved successfully!'})
+            query = Record.objects.filter(user=request.user).values()
+            data = []
+            for i in query:
+                obj = {}
+                obj['teacher_name'] = i['teacher_name']
+                obj['grade'] = i['grade']
+                obj['timestamp'] = str(i['timestamp']).split('+')[0]
+                data.append(obj)
+            return render(request, "calendar.html", {'user': request.user, 'message':'Record saved successfully!', 'data':data})
         except Exception as err:
             return render(request, "calendar.html", {'message': 'Error saving record : '+ str(err)})
     else:
