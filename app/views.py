@@ -32,6 +32,7 @@ def index(request):
 
 
 @csrf_exempt
+@login_required(login_url="/cal/login/")
 def save_record(request):
     if request.POST:
         try:
