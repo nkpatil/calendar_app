@@ -41,7 +41,8 @@ def save_record(request):
             dt = request.POST['date']
             dt = datetime.datetime.strptime(dt, '%m-%d-%Y')
             tm = request.POST['time']
-            timestamp = str(dt.date()) +" "+ tm
+            tm = datetime.datetime.strptime(tm, "%I:%M%p")
+            timestamp = str(dt.date()) +" "+ str(tm.time())
             comments = request.POST['comments']
             user = request.user
             record = Record()
