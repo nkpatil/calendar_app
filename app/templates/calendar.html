@@ -169,6 +169,7 @@
 	}
 </style>
 
+<div width="100%" align="right"><a href="/cal/logout/">Logout</a></div>
 <div class="container" align="center">
     <div class="row">
         <div class="col-md-3"></div>
@@ -176,9 +177,9 @@
 	    <div class="form_main">
               <h4 class="heading"><strong>Calendar </strong> Form <span></span></h4>
               <div class="form">
-                <form action="/cal/save_record/" method="post" id="contactFrm" name="contactFrm">
+                <form action="." method="post" id="contactFrm" name="contactFrm">
                     <input type="text" required="" placeholder="Teacher Name" value="" name="teacher_name" class="txt">
-                    <div>Grade : </div><input type="number" required="" value="1" min="1" max="5" name="grade_no" class="txt" style="width:100%;">
+                    <div>Grade : <input type="number" required="" value="1" min="1" max="5" name="grade_no" class="txt" style="width:100%;"></div>
 		    <div class="row">
                         <div class="col-sm-6"><input type="text" required="" placeholder="Date" value="" name="date" class="txt datepicker"></div>
                         <div class="col-sm-6"><input type="text" required="" placeholder="Time" id="input-a" name="time" class="txt" value="" data-default="00:00"></div>
@@ -191,7 +192,15 @@
         </div>
         <div class="col-md-3"></div>
     </div>
-    <div class="row" align="center">{{message}}</div>
+    <div class="row" align="center">
+        {% if messages %}
+            <div>
+            {% for message in messages %}
+                <h2 style="font-size:12px;">{{ message.message }}</h2>
+            {% endfor %}
+            </div>
+        {% endif %}
+    </div>
 </div>
 
 <div id='wrap'>

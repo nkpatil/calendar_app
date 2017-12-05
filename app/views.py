@@ -6,6 +6,7 @@ from django.contrib.auth import login
 from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from app.models import Record
 
 @csrf_exempt
@@ -50,20 +51,14 @@ def save_record(request):
             record.teacher_name = teacher_name
             record.grade = grade_no
             record.timestamp = timestamp
+            record.district = user.first_name
             record.comments = comments
             record.save()
-            template_name = request.user.last_name
-            query = Record.objects.filter(user=request.user).values()
-            data = []
-            for i in query:
-                obj = {}
-                obj['teacher_name'] = i['teacher_name']
-                obj['grade'] = i['grade']
-                obj['timestamp'] = str(i['timestamp']).split('+')[0]
-                data.append(obj)
-            return render(request, "calendar.html", {'user': request.user, 'message':'Record saved successfully!', 'data':data})
+            messages.success( request, 'Data saved successfully!' )
+            return HttpResponseRedirect("/cal/save_record/")
         except Exception as err:
-            return render(request, "calendar.html", {'message': 'Error saving record : '+ str(err)})
+            messages.error( request, 'Error saving data ({0})'.format(str(err)) )
+            return HttpResponseRedirect("/cal/save_record/")
     else:
           query = Record.objects.filter(user=request.user).values()
           data = []
@@ -74,3 +69,4 @@ def save_record(request):
               obj['timestamp'] = str(i['timestamp']).split('+')[0]
               data.append(obj)
           return render(request, "calendar.html", {'message':' ', 'data':data})
+

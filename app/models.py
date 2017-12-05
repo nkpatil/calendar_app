@@ -7,4 +7,5 @@ class Record(models.Model):
     teacher_name = models.CharField(max_length=100, help_text="Teacher Name")
     grade = models.IntegerField(help_text="Teacher grade number")
     timestamp = models.DateTimeField(help_text="Date time")
+    district = models.CharField(max_length=100, help_text="District Name")
     comments = models.CharField(max_length=1000, help_text="Comments (optional)")
